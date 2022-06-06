@@ -14,21 +14,26 @@ namespace Escritura_Archivos
             StreamWriter sw = new StreamWriter("ejemplo 2.txt", true);
             // Si el archivo no existe, lo creará
             // y  si ya es un archivo existente, escribira en el 
-            Console.Write("Indica cuantas personas quieres agregar:");
+            Console.Write("Indica cuantos videojuegos has jugado en este mes:");
             int cantidad = int.Parse(Console.ReadLine());
-
-            string[] lines = new string[cantidad];
-            for (int i = 0; i < lines.Length; i++)
+            Console.Clear();
+            
+            
+            for (int i = 1; i <= cantidad; i++)
             {
-                Console.Write("Indique el nombre de la persona que desea escribir: ");
-                lines[i] = Console.ReadLine();
+                Console.WriteLine("Juego No. " + i);
+                Console.WriteLine();
+                Console.Write("Ingrese el nombre del videojuego:");
+                string nombre = Console.ReadLine();
+                Console.Write("Ingrese el genero del juego:");
+                string genero = Console.ReadLine();
+                Console.Write("Ingrese la dificultad del juego:");
+                string dificultad = Console.ReadLine();
+                sw.WriteLine(nombre + " Genero: " + genero + " Dificultad: " + dificultad);// Escribe en el archivo
+                Console.Clear();
+                
             }
-
-            foreach (string line in lines)
-            {
-                sw.WriteLine(line);
-            }
-            sw.Close();
+            sw.Close();//Cierra el archivo
 
             Console.WriteLine("Escribiendo en el archivo...");
             Console.ReadLine();
